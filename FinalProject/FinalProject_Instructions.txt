@@ -1,0 +1,33 @@
+There is one task and one deliverable: NASM program fproj.asm  . The file fproj.asm can be submitted either via the course website, or using 2xa3submit. The final project can be submitted any number of times, the latest submission will be used for marking. The electronic submission will close on Dec. 6, at 11:59 PM. For 2xa3submit submission, please use 2xa3submit AAA xproj1 fproj.asm where AAA is your student number. The email submission can be used in emergency situation, and the instructor reserves the right to assess a penalty for email submission based on the circumstances.
+ 
+Your task is to design and write a 64 bit NASM program fproj.asm that behaves like the python program fproj.py (do not forget to make sure that it is a UNIX text file by executing dos2unix fproj.py after you transferred/downloaded it to moore) .
+The name of your program must be fproj.asm and below is a description of how it is to be designed and what it should do when executed.
+As in the labs, you will need the supporting files driver.c     simple_io.inc     simple_io.asm  to compile and execute your program.
+All output of your program must be handled by the routines from simple_io.asm . There will be a significant penalty for use of other means of outputting the data of the program.
+ 
+Your task is to design and write a 64 bit NASM program fproj.asm that behaves like the python program fproj.py -- do not forget to make sure that it is a UNIX text file by running dos2unix fproj.py after you transferred/downloaded it to moore).
+The program computes the border array of the input string and displays it in a simple way (as an array of numbers), and in a fancy way (as a bar diagram), see the python program fproj.py
+ 
+The program has to have the following subprograms:
+
+1. maxbord that gets two parameters on stack, one is an address of a string and the other is the string's length. It computes the size of the maximal border of the string and returns the number via RAX register. The python code of maxbord in fproj.py shows the algorithm to compute the size of the maximal border of a string.
+ 
+2. simple_display that gets two parameters on stack, one is an address of an array, and the other is the array's length. It displays the integer values stored in the array separated by commas. The python code of simple_display in fproj.py shows the algorithm to display an array.
+ 
+3. fancy_display that gets two parameters on stack, one is an address of an array and the other is the array's length. It displays the integer values stored in the array in a form of a bar chart, execute the python program fproj.py to see how the graph should look like. The sample program fproj.py utilizes another subprogram display_line , however, it is up to you how to implement fancy_display .
+ 
+What the program does:
+1. The program gets the input string as the first command line argument. For instance, to compute the border array for abcdabcdab it should be executed as fproj abcdabcdab .
+2. After checking the number of command lines arguments, it checks the length of the input string (it is argv[1]) by traversing the string and counting the number of its characters.
+3. If the string is longer than 12, the program displays an error message and terminates, otherwise it stores the value in a variable or a register and continues.
+4. Then it traverses the input string yet again and calls maxbord on the suffix (i.e. if at position i, it will invoke maxbord for the string argv[1][i..L-1] where L is the length of the string argv[1]). It stores the number returned by maxbord in the array.
+5. Then calls simple_display to display the computed array.
+6. Then it calls fancy_display to display the computed array.
+7. After that, the program terminates.
+ 
+fproj.py is a python 3 program and on moore must be executed by python3 fproj.py abcdabcdab
+Experiment with different input strings:
+- python3 fproj.py aababaa
+- python3 fproj.py aaaa
+- python3 fproj.py abcdaddad
+- python3 fproj.py abcdddd

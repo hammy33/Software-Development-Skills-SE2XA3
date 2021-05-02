@@ -1,0 +1,26 @@
+#!/bin/bash
+if [ "$#" -ne 2 ] && [ "$#" -ne 1 ]
+  then
+    echo "wrong number of arguments"  
+    echo "usage: script2 -- <filename>"    
+    echo "   or  script2 -- <filename1> <filename2>"
+fi
+
+if [ "$#" = 1 ]
+then
+  if [ $1 = "-?" ]
+  then 
+    echo "usage: script2 -- <filename>"     
+    echo "   or  script2 -- <filename1> <filename2>"
+  else 
+    echo "$1" > test_file.$1
+    echo "creating file test_file."$1
+  fi
+fi
+
+if [ "$#" = 2 ]
+  then 
+    echo "$1" > test_file.$1
+    echo "$2" > test_file.$2
+    echo "creating files test_file."$1" and test_file."$2
+fi

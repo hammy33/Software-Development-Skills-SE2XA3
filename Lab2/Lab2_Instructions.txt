@@ -1,0 +1,29 @@
+Task 1. bash script named script1
+
+The name of your bash script must be script1 and below is a description of what it should do when executed.
+ 
+- In the current directory (later we will refer to this directory as the original directory), it creates a directory named Directory_1 and displays a message Directory Directory_1 created.
+- Then in creates a directory Directory_2 as a subdirectory of Directory_1 and displays a message Subdirectory Directory_1/Directory_2 created.
+- Then it creates in Directory_2 a file named REDUNDANT contain one line saying redundant
+- In Directory_2 it creates in a loop 13 files named file_1 ... file_13. Each of these files contains exactly two lines, the first line of file_1 saying file name = file_1 and the second saying value = 10. The first line of file_2 saying file name = file_2 and the second saying value = 20 ... The first line of file_13 saying file name = file_13 and the second saying value = 130.
+- Then it displays a message Regular files of subdirectory Directory_2 of directory Directory_1: and displays all names of regular files in Directory_2. - Since the command ls displays all files, not just a regular ones, ls cannot be used.
+- Then it displays a message Created files contents: and displays the contents of the created files, one at a time. Each file is displayed with a header File XXX where XXX is the name of the file, followed by the contents of the file displayed by the command cat
+- Then it moves all created files (except REDUNDANT) that contain a letter 1 or a letter 3 from Directory_2 to Directory_1
+- Then it displays a message contents of Directory_1: and displays its contents using ls
+- Then it displays a message contents of Directory_2: and displays its contents using ls
+- In Directory_2 it creates a file named BAG containing the lines from all created files (except possibly REDUNDANT) that are at this point in Directory_2 and deletes them.
+- Then it displays a message contents of Directory_1: and displays its contents using ls
+- Then it displays a message contents of Directory_2: and displays its contents using ls
+- Then it moves to the original directory and removes Directory_1 with all the stuff in it, hence rmdir cannot be used.
+
+Task 2. bash script named script2
+
+The name of your bash script must be script2 and below is a description of what it should do when executed.
+ 
+1. Checks the number of command line arguments. If it is not 1 or 2, it displays an error message wrong number of arguments followed by the usage message
+usage: script2 -- <filename>
+    or script2 -- <filename1> <filename2>
+and the script terminates.
+2. If the script is executed with one command line argument that happens to be -? , then the script displays the usage message and terminates.
+If the script is executed with one command line argument that is not -? , then it creates a text file named test_file.XXX where XXX is the command line argument. 3. The file test_file.XXX contains a single line with the name of the file. Then it displays a message creating file test_file.XXX and terminates. The file with the name test_file.XXX must stay in the current directory
+4. If the script is executed with two command line arguments, then it creates a text file named test_file.XXX where XXX is the first command line argument, and then it creates a text file named test_file.YYY where YYY is the second command line argument. Each of the files contains one line with its name in it. These files must stay in the current directory

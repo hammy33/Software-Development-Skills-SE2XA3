@@ -1,0 +1,24 @@
+#!/bin/bash
+echo "Guess whether the two files X1 and X2 differ."
+read x
+y=`diff X1 X2`
+if [ "$x" == "Y" ]
+then
+  if [ -z "$y" ]
+  then
+    echo "Wrong guess, they do not differ"
+  else
+    echo "Good guess, they do differ"
+  fi
+elif [ "$x" == "N" ]
+then
+  if [ -z "$y" ]
+  then
+    echo "Good guess, they differ"
+  else
+    echo "Wrong guess, they do not differ"
+  fi 
+else
+  "Incorrect input, try again."
+fi
+

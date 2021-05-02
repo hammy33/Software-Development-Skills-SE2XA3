@@ -1,0 +1,16 @@
+show: temp prog.py
+	python3 prog.py
+prog.py: .FORCE	
+	echo "print('This is a class on boat making')"> prog.py
+	echo "print('We are learning how make dugout canoe')">> prog.py
+	echo "print('It is hard')">> prog.py
+	echo "print('If you do not know what \"dogout canoe\" is, google it')"  >> prog.py
+temp: GARBAGE prog.py
+	grep "@A" < GARBAGE > temp 
+	sed 's/@A//g' temp >> prog.py
+	rm temp	
+.FORCE:
+clean:
+	rm prog.py
+
+

@@ -1,0 +1,31 @@
+Task 1. bash script named script1
+
+The name of your bash script must be script1 and below is a description of what it should do when executed.
+ 
+1. First, create a text file named X1 . Its content is irrelevant, just one line using the echo command. The file is only needed for the script to work, not for the script istelf and is not going to be submitted.
+2. Then make a copy of the file and name it X2 . The file is only needed for the script to work, not for the script istelf and is not going to be submitted.
+3. Now write the script:
+4. The script displays a message Guess whether the two files X1 and X2 differ
+5. Enter Y for 'yes, they differ' or N for 'no, they do not differ'
+6. Read the user's response
+7. There are 4 possibilities, (a) the files differ, and the user guesses right, (b) the files differ and the user guesses wrong, (c) the files do not differ, and the user guesses right, and (d) the files do not differ and the user guesses wrong.
+   - If (a), the script displays a message good guess, they differ and terminates.
+   - If (b), the script displays a message wrong guess, they differ and terminates.
+   - If (c), the script displays a message good guess, they do not differ and terminates.
+   - If (d), the script displays a message wrong guess, they do not differ and terminates.
+
+Task 2. bash script named script2
+
+The name of your bash script must be script2 and below is a description of what it should do when executed.
+ 
+1. Displays a message contents of the original directory: and then displays the contents of the current directory using ls
+2. In the original directory, it creates a directory named Dir1 and displays a message directory Dir1 created
+3. Also in the original directory, it creates a directory named create Dir2 and displays a message directory Dir2 created
+4. In the directory Dir1 it creates a text file named U. The file U contains exactly two lines, the first saying This is the test file U, and the second saying The end of the test file U
+5. Then it displays contents of Dir1 and shows the contents of the directory using the ls command.
+6. Then it displays contents of Dir2 and shows the contents of the directory using the ls command.
+7. Then it moves the file X to Dir2 and displays a message X moved from Dir1 to Dir2
+8. Then it displays a message content of U and displays the contents of the file U
+9. Then it removes the directory Dir2 with the file U in it (so rmdir cannot be used) and displays a message Dir2
+10. Then it removes the directory Dir1 by rmdir
+11. Then it moves to the original directory and displays a message contents of the original directory: and displays the directory's contents and terminates

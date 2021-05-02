@@ -1,0 +1,2 @@
+#!/bin/bash
+g++ -o progA prog.cpp -D_A

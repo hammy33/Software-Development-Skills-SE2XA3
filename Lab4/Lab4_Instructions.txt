@@ -1,0 +1,20 @@
+Task. NASM program named proj4.asm
+
+The name of your file must be proj4.asm and below is a description of what it should do when executed. Note, that all inputoutput of your program must be handled by the routines from simple_io.asm .
+ 
+Before you start working on the make file proj4.asm 
+- Decide what will be your working directory.
+- Download a text file driver.c and save it on your laptop, then transfer it to moore to your working directory and convert it to a unix text file (using dos2unix) if need be.
+- Download a text file simple_io.inc and save it on your laptop, then transfer it to moore to your working directory and convert it to a unix text file (using dos2unix) if need be.
+- Download a text file simple_io.asm and save it on your laptop, then transfer it to moore to your working directory and convert it to a unix text file (using dos2unix) if need be.
+- Here is the makefile used to compile all the sample programs makefile. You can emulate it for your purposes, or you can download it, save it on your laptop, then transfer it to moore to your working directory and convert it to a unix text file (using dos2unix) if need be, and then modify it to your purposes.
+ 
+What proj4.asm should do when executed
+1. The program checks the number of command line arguments. If it is not equal to 1, it calls a subroutine Arg_handler that expects two arguments on the stack the first argument is the address of the string that contains the name of the program, and the second is the number of command line arguments. The name of the program passed to Arg_handler must be obtained from the command line argument, cannot be hard coded. Note that the even number of arguments requires to pass a third fake argument as well.
+2. The subroutine Arg_handler displays an error message about the incorrect number of command line arguments, then it displays a message how many command line arguments were used, then it displays the usage (see sample run below for how usage looks like), and terminates the program.
+3. If you cannot do it with a subroutine Arg_handler, do it without it, you will lose only about 15% of the mark without the subroutine.
+4. If there is a single command line argument, the subroutine Arg_handler is not called and in a loop, the program checks the length of the single command line argument.
+5. It displays the length, followed by a single space, followed by the command line argument.
+6. If the length of the first command line argument is less than 5, it displays a symbol @  immediately followed by the display of the argument in reverse by a loop, then immediately followed by a symbol  , followed by the display of the argument, immediately followed by a symbol @ .
+7. If the length of the first command line argument is exactly 5, it displays a symbol @  immediately followed by the display of the argument in reverse by a loop, immediately followed by a symbol @ .
+8. If the length of the first command line argument is bigger than 5, it displays the argument, immediately followed by a symbol  , followed by the display of the argument in reverse by a loop.

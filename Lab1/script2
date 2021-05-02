@@ -1,0 +1,27 @@
+#!/bin/bash
+echo "Contents of the original directory:"
+ls
+mkdir Dir1
+echo "Directory Dir1 created"
+mkdir Dir2
+echo "Directory Dir2 created"
+cd Dir1
+echo 'This is the test file U,' > U
+echo 'The end of the test file U' >> U
+echo "contents of Dir1:"
+ls 
+cd ..
+cd Dir2
+echo "contents of Dir2"
+ls 
+mv ~/Dir1/U .
+echo "U moved from Dir1 to Dir2"
+echo "Contents of U:"
+cat U
+cd ..
+rm -r Dir2
+echo "Dir2"
+rmdir Dir1
+cd
+echo "Contents of the original directory:" 
+ls 

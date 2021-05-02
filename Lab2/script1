@@ -1,0 +1,71 @@
+#!/bin/bash
+
+#CREATE THE DIRECTORIES AND FILES
+mkdir Directory_1
+echo "Directory Directory_1 created."
+cd Directory_1
+
+mkdir Directory_2
+echo "Directory Directory_1/Directory_2 created."
+cd Directory_2
+
+echo "redundant" >  REDUNDANT
+
+#create 13 files in a loop
+for i in {1..13}
+do
+ echo "File name = file_"$i > file_$i
+ echo "value = "$(($i*10)) >> file_$i
+done
+
+echo "Regular files of subdirectory Directory_2 of directory Directory_1" 
+find . -type f -printf '%f\n'
+
+echo "Created files contents:"
+for i in {1..13}
+do
+  echo "File file_"$i:
+  cat file_$i
+  z=`grep '1\|3' file_$i`
+  if [ -n "$z" ]
+  then
+    mv file_$i ..
+  fi
+done 
+
+cd ..
+echo "Contents of Directory_1"
+for i in `ls`
+do
+  echo $i
+done
+
+cd Directory_2
+echo "contents of Directory_2"
+for i in `ls`
+do
+  echo $i
+done
+
+touch BAG
+for i in `ls -d file_*`
+do 
+  echo cat $i >> BAG
+  rm -r $i
+done
+
+echo "Contents of Directory_1"
+for i in `ls ..`
+do
+  echo $i
+done
+
+echo "contents of Directory_2"
+for i in `ls`
+do
+  echo $i
+done
+
+cd ..
+cd ..
+rm -r Directory_1

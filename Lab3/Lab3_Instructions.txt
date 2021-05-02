@@ -1,0 +1,47 @@
+Task 1. make file named makefile
+
+The name of your file must be makefile and below is a description of what it should do when executed. Note that the names of the make files, the scripts, and of the files and directories, and the messages must be used exactly as described here, including the lower and upper cases.
+ 
+Before you start working on the make file makefile:
+- Decide what will be your working directory.
+- Download a text file file1 and save it on your laptop, then transfer it to moore to your working directory and convert it to a unix text file (using dos2unix) if need be.
+- Download a text file file2 and save it on your laptop, then transfer it to moore to your working directory and convert it to a unix text file (using dos2unix) if need be.
+- Download a text file mis1 and save it on your laptop, then transfer it to moore to your working directory and convert it to a unix text file (using dos2unix) if need be, and make it executable (by chmod).
+- Download a text file prog3.cpp and save it on your laptop, then transfer it to moore to your working directory and convert it to a unix text file (using dos2unix) if need be.
+
+What makefile should do when make show is executed:
+1. It creates prog1.cpp from prog3.cpp by replacing every occurrence of the character 3 by the character 1 (use command tr to do it).
+2. It creates prog2.cpp from prog3.cpp by replacing every occurrence of the character 3 by the character 2 (use command tr to do it).
+3. It creates a script named mis2 from mis1 by replacing every occurrence of the character A in the file mis1 by a string AB (use command sed to do it) and make it executable (use command chmod to do it).
+4. It creates prog1.o from prog1.cpp by ordinary C++ compilation, i.e. by g++ -c prog1.cpp .
+5. It creates prog2.o from prog2.cpp by ordinary C++ compilation.
+6. It creates prog3.o from prog3.cpp by ordinary C++ compilation.
+7. File prog.cpp is created from file1 and file2 by concatenation of the two files together in that order.
+8. The executable progA is made from prog.cpp by executing the script mis1 .
+9. The executable progAB is made from prog.cpp by executing the script mis2 .
+10. The executable progABC is made from prog.cpp and object files prog1.o , prog2.o , and prog3.o by compiling prog.cpp and linking it with the object files while defining a flag _ABC , ie. by g++ -o progABC prog.cpp prog1.o prog2.o prog3.o -D_ABC .
+11. When progA is created, it displays a message executing progA and executes progA .
+12. When progAB is created, it displays a message executing progAB , and executes progAB .
+13. When progABC is created, it displays a message executing progABC , and executes progABC .
+14. Before the execution of the make file is finished, the files prog1.cpp, prog1.o, prog2.cpp, prog2.o, prog3.o, prog.cpp, progA, progAB, progABC, prog.cpp, and mis2 must be removed from the current directory.
+
+Task 2. make file named mym
+
+The name of your make file must be mym and below is a description of what it should do when used.
+ 
+Before you start working on mym:
+- Decide what will be your working directory.
+- Download this ascii text data file GARBAGE to your laptop. Transfer it to moore to your working directory, and using dos2unix make sure it is a unix text file.
+
+What should mym do:
+1. When you type make -f mym show
+   - It creates a file named prog.py that does not depend on anything, i.e. its creation is forced.
+   - The first line of prog.py is print('This is a class on boat making')
+   - The second line of prog.py is print('We are learning how make dugout canoe')
+   - The third line of prog.py is print('It is hard')
+   - The fourth line of prog.py is print('If you do not know what "dogout canoe" is, google it'). Careful about the single and double quotes here!
+   - Then it creates a temporary file. It contains all the lines from GARBAGE that contain a string @A as a prefix (i.e. at the beginning of the line).
+Then it reads the temporary file and strips off the prefix @A from each line and append the stripped line to prog.py . The best is to use sed to read the temporary file and translate first occurrence of @A to nothing (empty string) and append the result to prog.py . After this, the temporary file must be deleted.
+   - It executes the python file prog.py by python3 prog.py
+   - Note, that the file prog.py is the only new file that remains in the directory after the execution of the makefile is finished.
+2. When you type make -f mym clean , the file prog.py is deleted.
