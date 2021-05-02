@@ -1,0 +1,2 @@
+# Software-Development-Skills-SE2XA3
+This repo incudes all of the assignments completed for my second year, Software Development Skills - SE2XA3 course. Concepts explored include unix and shell programming, makefiles, version control; assembly basics, translating high-level language into assembly, parameter passing, arrays, recursion; compiling, debugging, profiling, and software optimizations. I completed this course with a final grade of 4.0.
